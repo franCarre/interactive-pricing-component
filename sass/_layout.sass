@@ -1,0 +1,180 @@
+body
+  background-color: $main-bg
+  background-image: url('../images/bg-pattern.svg')
+  background-position-x: right
+  background-repeat: no-repeat
+  // background-size: contain
+  display: flex
+  flex-direction: column
+  align-items: center
+  height: 100vh
+  width: 100%
+
+p
+  color: $text
+  font-size: 1.5rem
+  font-weight: $semi-bold
+  letter-spacing: 0.1px
+
+.header
+  background-image: url('../images/pattern-circles.svg')
+  background-repeat: no-repeat
+  background-position: center 12rem
+  text-align: center
+  margin-bottom: 9.2rem
+  &__heading
+    color: $text-cta-bg
+    font-size: 2.83rem
+    font-weight: $extra-bold
+    margin-top: 15.5rem
+    margin-bottom: 1.2rem
+  &__text
+
+
+
+.card
+  background-color: $pricing-component-bg
+  border-radius: 1rem
+  box-shadow: 0px 10px 20px $empty-slider-bar
+  padding: 4.1rem 4.7rem 6rem 4.3rem
+  height: 40rem
+  width: 54rem
+  &__header
+    display: flex
+    align-items: center
+    justify-content: space-between
+  &__pageviews
+    text-transform: uppercase
+    letter-spacing: 1.7px
+  &__price
+    display: flex
+    align-items: center
+    & #price
+      margin-right: 1rem
+      color: $text-cta-bg
+      font-size: 4rem
+      font-weight: $extra-bold
+      letter-spacing: -1px
+
+  &__range
+    margin-top: 3.9rem
+    width: 100%
+    & input
+      margin: 0
+      width: 100%
+
+  &__toggle
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: 1.2rem
+    margin-top: 5.3rem
+    & p
+      font-size: 1.2rem
+    & span
+      background-color: $discount-bg
+      border-radius: 1rem
+      color: $discount-text
+      font-size: 1rem
+      padding: 0.15rem 0.7rem
+
+  &__footer
+    display: flex
+    align-items: center
+    justify-content: space-between
+    font-size: 1.3rem
+    margin-top: 3.5rem
+    padding-top: 4rem
+    & ul
+      list-style: url('../images/icon-check.svg')
+      margin-left: 1.9rem
+    & ul li
+      color: $text
+      margin-bottom: 1rem
+
+.cta
+  background-color: $text-cta-bg
+  border-radius: 3rem
+  color: $cta-text
+  padding: 1.1rem 4.5rem
+  margin-bottom: 1rem
+  transition: $transition
+  &:hover
+    color: white
+
+
+input[type=range]
+  -webkit-appearance: none
+
+input[type=range]:focus
+  outline: none
+
+input[type=range]::-webkit-slider-runnable-track
+  cursor: pointer
+  animate: 0.2s
+  background: $full-slider-bar
+  border-radius: 1rem
+  height: 0.8rem
+
+input[type=range]::-webkit-slider-thumb
+  height: 35px
+  width: 35px
+  border-radius: 50%
+  background: url('../images/icon-slider.svg') $slider-bg no-repeat
+  background-position: center
+  box-shadow: 0px 15px 25px $full-slider-bar
+  cursor: pointer
+  -webkit-appearance: none
+  margin-top: -12px
+  &:active
+    background-color: #23AEA1
+
+
+input[type=range]:focus::-webkit-slider-runnable-track
+  background: $full-slider-bar
+
+input[type=range]::-moz-range-track
+  width: 100%
+  cursor: pointer
+  animate: 0.2s
+  background: $full-slider-bar
+
+input[type=range]::-moz-range-thumb
+  background: url('../images/icon-slider.svg') $slider-bg no-repeat
+  background-position: center
+  box-shadow: 0px 15px 25px $full-slider-bar
+  height: 35px
+  width: 35px
+  border-radius: 50%
+  background: $slider-bg
+  cursor: pointer
+
+input[type=range]::-ms-track
+  width: 100%
+  cursor: pointer
+  animate: 0.2s
+  background: transparent
+  color: transparent
+
+input[type=range]::-ms-fill-lower
+  background: $full-slider-bar
+
+input[type=range]::-ms-fill-upper
+  background: $full-slider-bar
+
+input[type=range]::-ms-thumb
+  background: url('../images/icon-slider.svg') $slider-bg no-repeat
+  background-position: center
+  box-shadow: 0px 15px 25px $full-slider-bar
+  margin-top: 1px
+  height: 35px
+  width: 35px
+  border-radius: 50%
+  background: $slider-bg
+  cursor: pointer
+
+input[type=range]:focus::-ms-fill-lower
+  background: $full-slider-bar
+
+input[type=range]:focus::-ms-fill-upper
+  background: $full-slider-bar

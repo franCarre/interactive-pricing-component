@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <title>Frontend Mentor | Interactive pricing component</title>
+
+</head>
+<body>
+
+    <header class="header">
+      <h1 class="header__heading">Simple, traffic-based pricing</h1>
+      <p class="header__text">Sign-up for our 30-day trial. No credit card required.</p>
+    </header>
+
+    <article class="card">
+
+      <header class="card__header">
+        <p id="pageviews" class="card__pageviews">0 pageviews <span></span></p>
+        <div>
+          <p class="card__price">
+            <span id="price">$0.00</span><span id="period"> / month</span>
+          </p>
+        </div>
+      </header>
+
+      <section class="card__range">
+        <input id="range" class="card__input" type="range" step="8" value="0" min="0" max="36"/>
+      </section>
+
+      <section class="card__toggle">
+        <p>Monthly Billing</p>
+        <p>Yearly Billing</p>
+        <span id="discount" class="card__discount">25% discount</span>
+      </section>
+
+      <footer class="card__footer">
+        <ul>
+          <li>Unlimited websites</li>
+          <li>100% data ownership</li>
+          <li>Email reports</li>
+        </ul>
+        <a class="cta" href="#">Start my trial</a>
+      </footer>
+
+    </article> 
+
+  <script src="script.js"></script>
+</body>
+</html>
