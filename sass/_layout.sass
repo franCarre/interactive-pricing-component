@@ -1,15 +1,23 @@
 body
   background-color: $main-bg
   background-image: url('../images/bg-pattern.svg')
-  background-position-x: right
   background-repeat: no-repeat
-  // background-size: contain
+  background-position-x: left
+  background-attachment: fixed
   display: flex
   flex-direction: column
+  font-family: $font-family
+  font-size: 1.5rem
   align-items: center
+  justify-content: center
   height: 100vh
   width: 100%
-
+  overflow: hidden
+  padding: 3rem 1rem 1.3rem
+  @media screen and (min-width:768px)
+    justify-content: initial
+  @media screen and (min-width: 1200px)
+    background-position-x: right
 p
   color: $text
   font-size: 1.5rem
@@ -17,74 +25,195 @@ p
   letter-spacing: 0.1px
 
 .header
-  background-image: url('../images/pattern-circles.svg')
-  background-repeat: no-repeat
-  background-position: center 12rem
   text-align: center
-  margin-bottom: 9.2rem
+  position: relative
+  height: 15rem
+  @media screen and (min-width:768px)
+    background-position: center 11.8rem
+    margin-bottom: 4.9rem
+    height: 27rem
+  &::after
+    background-image: url('../images/pattern-circles.svg')
+    background-repeat: no-repeat
+    background-position: center
+    content: ''
+    position: absolute
+    margin: auto
+    left: 50%
+    top: -3.4rem
+    transform: translateX(-50%)
+    height: 100%
+    width: 100%
+    z-index: -1
+    @media screen and (min-width:768px)
+      top: 6rem
+
   &__heading
     color: $text-cta-bg
-    font-size: 2.83rem
+    font-size: 2rem
     font-weight: $extra-bold
-    margin-top: 15.5rem
-    margin-bottom: 1.2rem
+    margin-bottom: 0.6rem
+    @media screen and (min-width:768px)
+      font-size: 2.83rem
+      margin-top: 15.5rem
+      margin-bottom: 1rem
+
   &__text
-
-
+    line-height: 2.5rem
+    font-size: 1.3rem
+    margin: auto
+    max-width: 18rem
+    @media screen and (min-width:768px)
+      font-size: 1.5rem
+      max-width: none
 
 .card
   background-color: $pricing-component-bg
   border-radius: 1rem
   box-shadow: 0px 10px 20px $empty-slider-bar
-  padding: 4.1rem 4.7rem 6rem 4.3rem
-  height: 40rem
-  width: 54rem
-  &__header
+  padding: 3.2rem 2.4rem
+  position: relative
+  height: 48rem
+  width: 33rem
+  @media screen and (min-width:768px)
+    padding: 4.1rem 4.7rem 6rem 4.3rem
+    height: 40rem
+    width: 54rem
+
+  &__pricing
     display: flex
     align-items: center
     justify-content: space-between
+    flex-direction: column
+    @media screen and (min-width:768px)
+      flex-direction: row
+
   &__pageviews
-    text-transform: uppercase
+    font-size: 1.3rem
     letter-spacing: 1.7px
+    text-transform: uppercase
+    margin-bottom: 8.7rem
+    @media screen and (min-width:768px)
+      font-size: 1.5rem
+      margin-bottom: 0
+
   &__price
     display: flex
     align-items: center
     & #price
       margin-right: 1rem
       color: $text-cta-bg
-      font-size: 4rem
+      font-size: 3.5rem
       font-weight: $extra-bold
-      letter-spacing: -1px
+      letter-spacing: -2.6px
+      @media screen and (min-width:768px)
+        font-size: 4rem
+        letter-spacing: -1px
 
-  &__range
+  &__slider
     margin-top: 3.9rem
     width: 100%
+    position: absolute
+    top: 5rem
+    @media screen and (min-width:768px)
+      top: 0
+      position: relative
     & input
       margin: 0
-      width: 100%
+      width: 28.3rem
+      @media screen and (min-width:768px)
+        width: 100%
 
-  &__toggle
+  &__billing
     display: flex
     align-items: center
     justify-content: center
     font-size: 1.2rem
-    margin-top: 5.3rem
+    margin-top: 3.2rem
+    position: relative
+    transform: translateX(-0.6rem)
+    @media screen and (min-width:768px)
+      margin-top: 5.3rem
+      transform: none
     & p
       font-size: 1.2rem
-    & span
-      background-color: $discount-bg
-      border-radius: 1rem
-      color: $discount-text
-      font-size: 1rem
-      padding: 0.15rem 0.7rem
 
-  &__footer
+  &__discount
+    background-color: $discount-bg
+    border-radius: 1rem
+    color: $discount-text
+    font-size: 1rem
+    padding: 0.2rem 0.7rem 0.2rem
+    position: absolute
+    right: -1.7rem
+    @media screen and (min-width:768px)
+      right: 2rem
+    &::after
+      content: '-25%'
+      @media screen and (min-width:768px)
+        content: '25% discount'
+
+  &__toggle
+    position: relative
+    display: inline-block
+    width: 4.4rem
+    height: 2.2rem
+    margin: 0 1.2rem
+    @media screen and (min-width:768px)
+      margin: 0 1.8rem
+    & input
+      opacity: 0
+      width: 0
+      height: 0
+    & input:checked + .toggle
+      background-color: #79EADD
+    & input:checked + .toggle::before
+      transform: translateX(2rem)
+      -webkit-transform: translateX(2rem)
+      -ms-transform: translateX(2rem)
+
+    & .toggle
+      background-color: $toggle-bg
+      border-radius: 5rem
+      cursor: pointer
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      -webkit-transition: .4s
+      transition: .4s
+      &::before
+        border-radius: 50%
+        position: absolute
+        content: ''
+        height: 1.5rem
+        width: 1.5rem
+        left: 4px
+        bottom: 3.5px
+        background-color: white
+        -webkit-transition: .4s
+        transition: .4s
+
+  &__features
     display: flex
     align-items: center
     justify-content: space-between
+    flex-direction: column
     font-size: 1.3rem
-    margin-top: 3.5rem
+    margin-top: 2.4rem
     padding-top: 4rem
+    @media screen and (min-width:768px)
+      flex-direction: row
+      margin-top: 3.5rem
+    &::after
+      background: #F1F0F4
+      content: ''
+      height: 1px
+      width: 100%
+      left: 0
+      top: 26.2rem
+      position: absolute
     & ul
       list-style: url('../images/icon-check.svg')
       margin-left: 1.9rem
@@ -97,14 +226,19 @@ p
   border-radius: 3rem
   color: $cta-text
   padding: 1.1rem 4.5rem
-  margin-bottom: 1rem
-  transition: $transition
+  transition: $transition transform, color
+  margin-top: 2.2rem
+  @media screen and (min-width:768px)
+    margin-top: 0
+    margin-bottom: 1rem
   &:hover
     color: white
+    transform: scale(1.02)
 
 
 input[type=range]
   -webkit-appearance: none
+  background: linear-gradient(to right, hsl(174, 77%, 80%) 0%, hsl(174, 77%, 80%) 50%, hsl(224, 65%, 95%) 0%, hsl(224, 65%, 95%) 100%)
 
 input[type=range]:focus
   outline: none
@@ -112,13 +246,12 @@ input[type=range]:focus
 input[type=range]::-webkit-slider-runnable-track
   cursor: pointer
   animate: 0.2s
-  background: $full-slider-bar
   border-radius: 1rem
   height: 0.8rem
 
 input[type=range]::-webkit-slider-thumb
-  height: 35px
-  width: 35px
+  height: 3.7rem
+  width: 3.7rem
   border-radius: 50%
   background: url('../images/icon-slider.svg') $slider-bg no-repeat
   background-position: center
@@ -128,10 +261,6 @@ input[type=range]::-webkit-slider-thumb
   margin-top: -12px
   &:active
     background-color: #23AEA1
-
-
-input[type=range]:focus::-webkit-slider-runnable-track
-  background: $full-slider-bar
 
 input[type=range]::-moz-range-track
   width: 100%
@@ -143,8 +272,8 @@ input[type=range]::-moz-range-thumb
   background: url('../images/icon-slider.svg') $slider-bg no-repeat
   background-position: center
   box-shadow: 0px 15px 25px $full-slider-bar
-  height: 35px
-  width: 35px
+  height: 3.7rem
+  width: 3.7rem
   border-radius: 50%
   background: $slider-bg
   cursor: pointer
@@ -156,25 +285,13 @@ input[type=range]::-ms-track
   background: transparent
   color: transparent
 
-input[type=range]::-ms-fill-lower
-  background: $full-slider-bar
-
-input[type=range]::-ms-fill-upper
-  background: $full-slider-bar
-
 input[type=range]::-ms-thumb
   background: url('../images/icon-slider.svg') $slider-bg no-repeat
   background-position: center
   box-shadow: 0px 15px 25px $full-slider-bar
   margin-top: 1px
-  height: 35px
-  width: 35px
+  height: 3.7rem
+  width: 3.7rem
   border-radius: 50%
   background: $slider-bg
   cursor: pointer
-
-input[type=range]:focus::-ms-fill-lower
-  background: $full-slider-bar
-
-input[type=range]:focus::-ms-fill-upper
-  background: $full-slider-bar

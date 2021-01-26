@@ -6,6 +6,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="css/style.css">
   
   <title>Frontend Mentor | Interactive pricing component</title>
@@ -13,40 +14,44 @@
 </head>
 <body>
 
-    <header class="header">
+    <header class="header animate__animated animate__fadeInDown">
       <h1 class="header__heading">Simple, traffic-based pricing</h1>
       <p class="header__text">Sign-up for our 30-day trial. No credit card required.</p>
     </header>
 
-    <article class="card">
+    <article class="card animate__animated animate__backInUp">
 
-      <header class="card__header">
-        <p id="pageviews" class="card__pageviews">0 pageviews <span></span></p>
+      <section class="card__pricing">
+        <p id="pageviews" class="card__pageviews">100k pageviews <span></span></p>
         <div>
           <p class="card__price">
-            <span id="price">$0.00</span><span id="period"> / month</span>
+            <span id="price">$16.00</span><span id="period"> / month</span>
           </p>
         </div>
-      </header>
-
-      <section class="card__range">
-        <input id="range" class="card__input" type="range" step="8" value="0" min="0" max="36"/>
       </section>
 
-      <section class="card__toggle">
+      <section class="card__slider">
+        <input id="range" class="card__input" type="range" step="1" min="0" max="4"/>
+      </section>
+
+      <section class="card__billing">
         <p>Monthly Billing</p>
+        <label class="card__toggle">
+          <input id="toggle" type="checkbox">
+          <span class="toggle"></span>
+        </label>
         <p>Yearly Billing</p>
-        <span id="discount" class="card__discount">25% discount</span>
+        <span id="discount" class="card__discount"></span>
       </section>
 
-      <footer class="card__footer">
+      <section class="card__features">
         <ul>
           <li>Unlimited websites</li>
           <li>100% data ownership</li>
           <li>Email reports</li>
         </ul>
         <a class="cta" href="#">Start my trial</a>
-      </footer>
+      </section>
 
     </article> 
 
